@@ -1,3 +1,6 @@
+############ Userdata for Ec2 instance ################
+
+
 #!/bin/bash
 # Update package manager
 sudo yum update -y
