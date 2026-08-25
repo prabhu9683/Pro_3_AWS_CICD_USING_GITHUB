@@ -1,17 +1,16 @@
 #!/bin/bash
-# Update package manager and repository lists
-sudo apt update -y
 
-# Install dependencies (Ruby and wget are required for CodeDeploy)
-sudo apt install ruby-full wget -y
+# Update package manager
+sudo apt-get update -y
 
-# Change to a safe working directory for the default Ubuntu user
+# Install dependencies (including webrick for Ruby 3+ support on newer Ubuntu)
+sudo apt-get install ruby-full ruby-webrick wget unzip -y
+
+# Change to a safe working directory
 cd /home/ubuntu
 
-# Download the latest CodeDeploy agent installer for the Mumbai region
+# Download and execute the CodeDeploy agent for Mumbai region
 wget https://aws-codedeploy-ap-south-1.s3.ap-south-1.amazonaws.com/latestv2/install
-
-# Make the installer executable and run the installation setup
 chmod +x ./install
 sudo ./install auto
 
