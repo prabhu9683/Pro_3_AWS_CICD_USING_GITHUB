@@ -1,6 +1,10 @@
 #!/bin/bash
-# 1. Update the local package index tables
-sudo apt-get update -y
+# Update and install 
 
-# 2. Install the correct Apache package for Ubuntu
+sudo apt-get update -y
 sudo apt-get install -y apache2
+
+# Remove the default file created by Ubuntu's installation
+if [ -f /var/www/html/index.html ]; then
+    sudo rm -f /var/www/html/index.html
+fi
