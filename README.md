@@ -1,15 +1,20 @@
-# Ram Hemareddy AWS CICD Pipeline Code Deployment to AWS EC2 Instance
+#!/bin/bash
+# Update package manager
+sudo yum update -y
 
+# Install dependencies (Ruby is required for CodeDeploy)
+sudo yum install ruby wget -y
 
-<b>User Data for Dependencies installations for AMAZON Linux 2:-</b>
+# Change to a safe working directory
+cd /home/ec2-user
 
-#!/bin/bash<br />
-sudo yum -y update<br />
-sudo yum -y install ruby<br />
-sudo yum -y install wget<br />
-cd /home/ec2-user<br />
-wget https://aws-codedeploy-ap-south-1.s3.ap-south-1.amazonaws.com/latest/install<br />
-sudo chmod +x ./install<br />
-sudo ./install auto<br />
-sudo yum install -y python-pip<br />
-sudo pip install awscli<br />
+# Download the latest CodeDeploy agent for Mumbai region
+wget https://aws-codedeploy-ap-south-1.s3.ap-south-1.amazonaws.com/latestv2/install
+
+# Make it executable and run the installation
+chmod +x ./install
+sudo ./install auto
+
+# Enable and start the agent service
+sudo systemctl enable codedeploy-agent
+sudo systemctl start codedeploy-agent
