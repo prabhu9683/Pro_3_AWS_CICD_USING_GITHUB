@@ -1,2 +1,4 @@
 #!/bin/bash
-service httpd start
+# Ensure the Apache service is enabled to run on boot and started
+sudo systemctl enable apache2
+sudo systemctl start apache2
