@@ -1,3 +1,6 @@
 #!/bin/bash
-apt-get install -y httpd
+# 1. Update the local package index tables
+sudo apt-get update -y
 
+# 2. Install the correct Apache package for Ubuntu
+sudo apt-get install -y apache2
