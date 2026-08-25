@@ -9,7 +9,7 @@ sudo apt install ruby-full wget -y
 cd /home/ubuntu
 
 # Download the latest CodeDeploy agent installer for the Mumbai region
-wget https://amazonaws.com](https://aws-codedeploy-ap-south-1.s3.ap-south-1.amazonaws.com/latestv2/install
+wget https://aws-codedeploy-ap-south-1.s3.ap-south-1.amazonaws.com/latestv2/install
 
 # Make the installer executable and run the installation setup
 chmod +x ./install
